@@ -4,4 +4,4 @@
 
 ?>
 
-<h1>helloo People!</h1>
+<h1>helloo weople!</h1>
