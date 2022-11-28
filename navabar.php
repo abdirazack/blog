@@ -4,4 +4,5 @@
 
 ?>
 
-<h1>helloo weople!</h1>
+
+<h1>hello Smart People!</h1>
