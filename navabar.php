@@ -5,4 +5,4 @@
 ?>
 
 
-<h1>hello Smart People!</h1>
+<h1>hello dumb People!</h1>
