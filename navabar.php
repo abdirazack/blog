@@ -17,7 +17,7 @@ include('header.php');
           <a class="nav-link" href="#">Features</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="#">Notifications</a>
+          <a class="nav-link" href="home.php">Create Post</a>
         </li>
         <li class="nav-item dropdown px-3">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
