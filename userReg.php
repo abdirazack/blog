@@ -118,6 +118,7 @@
         btnReg:btnReg
       },
         success:function(data){
+            alert(data);
             var obj = jQuery.parseJSON(data);
             if (obj.status == 200) {
                
