@@ -8,6 +8,12 @@ include('header.php');
             <h1>COWT</h1>
         </center>
     </div>
+    <center>
+    <div>
+        <h2>Welcome to COWT. <brtouched>The most amazing blog on the world wide web.</h2>
+        <h3>Come express yourself</h3>
+    </div>
+    </center>
     <div class="h-10 d-flex align-items-center justify-content-center m-5">
         <a  href='./userReg.php' class='btn btn-primary mx-5'>Register</a>
         <a  href='./login.php' class='btn btn-dark mx-5'>Log In</a>
