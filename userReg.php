@@ -12,7 +12,7 @@
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                <form class="mx-1 mx-md-4">
+                <form class="mx-1 mx-md-4" method="POST" enctype="multipart/form-data" action ='./user_process/insert.php'>
                     <div id="error" style="color: red; font-size: 24px;"></div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
@@ -71,7 +71,7 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" name= 'btnReg' id="btnReg" onclick='adduser()' class="btn btn-outline-primary btn-lg">Register</button>
+                    <input type="submit" name= 'btnReg' id="btnReg"  class="btn btn-outline-primary btn-lg" value="Register" />
                   </div>
                   <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
                     class="fw-bold text-body"><u>Login here</u></a></p>
@@ -115,16 +115,17 @@
         email:email,
         password:password,
         avatar:avatar,
-        btnReg:btnReg
+        btnReg:btnReg,
       },
         success:function(data){
             alert(data);
             var obj = jQuery.parseJSON(data);
             if (obj.status == 200) {
-               
+               Window.location.assign('home.php');
             }
             if (obj.status == 404) {
-               
+                $("#error").removeClass("d-none");
+                $("#error").text(obj.message);
             }
              
         }
