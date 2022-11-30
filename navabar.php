@@ -33,7 +33,7 @@
           <a class="nav-link active " aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="./postClick.php">Features</a>
+          <a class="nav-link" href="./viewPost.php">Features</a>
         </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="home.php">Create Post</a>
