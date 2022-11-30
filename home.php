@@ -1,7 +1,8 @@
 
 <?php include_once('navabar.php');?>
+<div id="container-fluid">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary float-end mx-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Create New Posts
 </button>
 
@@ -67,5 +68,6 @@
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
+</div>
 </div>
 </div>

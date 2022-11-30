@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./Assets/DataTables/twitter-bootstrap.css"/>
 
 
+<!-- <script src="./Assets/bootstrap/js/popper.js"></script> -->
 <script src="./Assets/bootstrap/js/bootstrap.js"></script>
 <script src="./Assets/bootstrap/js/bootstrap.bundle.min.js" ></script>
 <script src="./Assets/jquery.js"></script>

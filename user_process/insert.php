@@ -1,11 +1,12 @@
 <?php 
     require_once '../db_connect.php';
+    session_start();
 
     if(isset($_POST['btnReg']) && isset($_FILES['avatar'])){
 
         $username =  htmlspecialchars($_POST['username']);
-        $email  = htmlspecialchars($_POST['username']);
-        $password = htmlspecialchars($_POST['username']);
+        $email  = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
         $status =  'Active';
 
         $filename =  $_FILES["avatar"]["name"];
@@ -40,7 +41,7 @@
             }
             else
             {
-                if (file_exists("./Pictures/Profiles" .  $filename))
+                if (file_exists("../Pictures/Profiles" .  $filename))
                 {
                         $data = ['message'=>'A file with the same name already exists.', 'status'=>404];
                         echo json_encode($data);
@@ -48,15 +49,18 @@
                 }
                 else
                 {
-                    if(move_uploaded_file($temp_name , "Pictures/Profiles/" .  $filename)){
-                        $avatar = "Pictures/Profiles/" .  $filename;
-                        $sql = "INSERT INTO users VALUES('null', '$username', '$email', '$password', '$avatar', '$status', 'null', 'null')";
+                    if(move_uploaded_file($temp_name , "../Pictures/Profiles/" .  $filename)){
+                        $avatar = "./Pictures/Profiles/" .  $filename;
+                        $sql = "INSERT INTO users VALUES('null', '$username', '$email', '$password', '$avatar', '$status', null, null)";
 
                         $query_insert = mysqli_query($conn, $sql);
                         if($query_insert){
-                            $data = ['message'=>'Success', 'status'=>200];
-                            echo json_encode($data);
-                            return ;
+                            // $data = ['message'=>'Success', 'status'=>200];
+                            // echo json_encode($data);
+                            // return ;
+                            $_SESSION['username'] = $username;
+                            $_SESSION['email'] = $email;
+                            header("location: ../home.php");
                         }
                         else{
                             $data = ['message'=>'Failed to register database', 'status'=>404];
