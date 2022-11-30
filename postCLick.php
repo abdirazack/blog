@@ -10,7 +10,7 @@
             <div class="card mb-4">
               <div class="card-body shadow">
                 <div class="media mb-3">
- 
+                  <img src="./Pictures/Profiles/bp.jpg" class="d-block ui-w-40 rounded-5"  style="width: 100%;" alt="">
                   <div class="media-body ml-3">
                    User: Kenneth Frazier
                     <div class="text-muted small">DateCreated: 3 days ago</div>
