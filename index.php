@@ -1,7 +1,10 @@
 <?php
 include('header.php');
 ?>
-
+<head>
+<link rel="icon" type="image/x-icon" href="./Pictures/Favicon.ico">
+<title>COWt</title>
+</head>
 <header>
     <div class='m-5 shadow p-5'>
         <center>
