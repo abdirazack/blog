@@ -136,10 +136,10 @@
 
         if(!(password === password2)){
             $("#error").removeClass("d-none");
-            $("#error").text("Your passwords don't much");
+            $("#error").text("Your passwords don't match");
         }
         else{
-            
+            $("#error").addClass("d-none");
         }
     }
 </script>

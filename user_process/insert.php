@@ -4,5 +4,5 @@
     $username =  htmlspecialchars($_POST['username']);
     $email  = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['username']);
-    $avatar =
-    $status =
+    $avatar = $_FILES['avatar'];
+    $status =  'Active';
