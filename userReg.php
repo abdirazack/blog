@@ -13,7 +13,7 @@
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
                 <form class="mx-1 mx-md-4">
-
+                    <div id="error" style="color: red; font-size: 24px;"></div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
                         <label class="form-label" for="form3Example1c">User Name</label>
@@ -49,7 +49,7 @@
                         <label class="form-label" for="form3Example1c">Confirm Password</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-key fa-lg me-3 fa-fw"></i></span>
-                            <input type="password" id="R-password" name="R-password" class="form-control shadow-none" aria-describedby="basic-addon1" />
+                            <input type="password" id="R-password" onchange='confirmpass()' name="R-password" class="form-control shadow-none" aria-describedby="basic-addon1" />
                         </div>
                     </div>
                   </div>
@@ -71,7 +71,7 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-outline-primary btn-lg">Register</button>
+                    <button type="button" name= 'btnReg' id="btnReg" onclick='adduser()' class="btn btn-outline-primary btn-lg">Register</button>
                   </div>
                   <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
                     class="fw-bold text-body"><u>Login here</u></a></p>
@@ -92,3 +92,54 @@
     </div>
   </div>
 </section>
+
+
+<script>
+
+    $(document).ready(function(){
+        $("#error").addClass("d-none");
+    });
+
+    function adduser(){
+      var username=$('#username').val();
+      var email=$('#email').val();
+      var password=$('#password').val();
+      var avatar=$('#avatar').val();
+      var btnReg=$('#btnReg').val();
+      
+      $.ajax({
+        url:"user_process/insert.php",
+        type:'post',
+        data:{
+        username:username,
+        email:email,
+        password:password,
+        avatar:avatar,
+        btnReg:btnReg
+      },
+        success:function(data){
+            var obj = jQuery.parseJSON(data);
+            if (obj.status == 200) {
+               
+            }
+            if (obj.status == 404) {
+               
+            }
+             
+        }
+     });
+    }
+
+    function confirmpass(){
+        var password=$('#password').val();
+        var password2=$('#R-password').val();
+
+        if(!(password === password2)){
+            $("#error").removeClass("d-none");
+            $("#error").text("Your passwords don't much");
+        }
+        else{
+            
+        }
+    }
+</script>
