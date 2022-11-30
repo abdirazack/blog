@@ -7,7 +7,7 @@
         <div class="col-lg-6">
             <div class="card mb-4">
 
-                <div class="card-header" style="{width: 100%;}">Title</div>
+                <div class="card-header" style="{width: 100%;}"><h2>This is a very niiiice title</h2></div>
 
                 <div class="card-body shadow " style="width: 100%;">
 
