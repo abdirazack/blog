@@ -1,3 +1,5 @@
+<?php include_once("navabar.php");?>
+
 <div class="card" style="width: 24rem;">
   <div class="card-header">
     Title
