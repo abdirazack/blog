@@ -34,7 +34,7 @@
                         </a>
                         <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
                             <small class="align-middle">
-                                <i icon="fa-solid fa-comment"></i>
+                                <i icon="fa-regular fa-comment"></i>
                                 Comments</small>
                         </a>
                         <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
