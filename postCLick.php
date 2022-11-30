@@ -6,7 +6,7 @@
   </div>
   <div class="card-body bordered shadow">
     <div class="container-fluid posts-content">
-        <div class="col-lg-6 shadow-lg">
+        <div class="col-lg-6 shadow-lg" style="{width: 100%;}">
             <div class="card mb-4">
               <div class="card-body ">
                 <div class="media mb-3">
@@ -30,8 +30,8 @@
                     <i class="fas fa-heart"></i>Favourites</small>
                 </a>
                 <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
-                  <small class="align-middle">
-                  <i icon="fa-solid fa-comment"></i>
+                  <small class=" p-5 align-middle">
+                  <i icon="fa-regular fa-comment"></i>
                    Comments</small>
                 </a>
                 <a href="javascript:void(0)" class="d-inline-block text-muted ml-3">
