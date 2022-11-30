@@ -41,7 +41,6 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `avatar` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
-  `online` varchar(255) NOT NULL,
   `dateCreated` timestamp NOT NULL DEFAULT current_timestamp(),
   `dateUpdated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Users Table created abdi helped by nobody';
