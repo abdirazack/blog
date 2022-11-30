@@ -16,6 +16,10 @@
   }
 
 ?>
+<head>
+<link rel="icon" type="image/x-icon" href="./Pictures/Favicon.ico">
+<title>COWt</title>
+</head>
 
 <nav class="navbar navbar-expand-lg bg-light shadow p-3 mb-5 bg-body rounded">
 <div class="container">
