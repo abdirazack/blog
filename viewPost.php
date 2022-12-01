@@ -28,8 +28,8 @@ include("db_connect.php");
 
 
 
-<div class="bordered shadow" style="{padding-left: 50%;}">
-    <div class="col-5" style="{width: 50%;}">
+<div class="bordered shadow">
+    <div class="col-5">
         <div class="card mb-4">
 
             <div class="card-header">
@@ -38,7 +38,7 @@ include("db_connect.php");
 
             <div class="card-body ">
 
-                <div class="media mb-3" style="{width: 10rem;}">
+                <div class="media mb-3">
 
                     <div class="media-body ml-3">
 
@@ -65,7 +65,7 @@ include("db_connect.php");
                     style="background-image: url('/Pictures/Profiles/bp.jpg');"></a>
             </div>
 
-            <div class="card-footer" style="{width: 100%;}">
+            <div class="card-footer">
                 <a href="javascript:void(0)" class="d-inline-block text-decoration-none">
                     <i class="fas fa-heart"></i>
                     <small class="align-middle p-3">
