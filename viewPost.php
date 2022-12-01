@@ -47,19 +47,20 @@ include("db_connect.php");
                            //Date Created
                                  $dateCreated = strtotime($dateCreated);
                                  $dateCreated = date("d-M-Y H:i", $dateCreated);
-                                 echo "<small>$dateCreated</small> ";
+                                 echo "<small> $dateCreated</small> ";
                         ?>
-                    </div><hr>
+                    </div>
+                    <hr>
                     <p>
-                    <?php //Post Content
+                        <?php //Post Content
                         echo $postDesc;
                         ?>
-                </p>
+                    </p>
                     <img src="<?php //Post Image
                         echo $imgPath; ?>" class="d-block ui-w-40 rounded-3 w-100" alt="">
                 </div>
 
-                
+
                 <a href="javascript:void(0)" class="ui-rect ui-bg-cover"
                     style="background-image: url('/Pictures/Profiles/bp.jpg');"></a>
             </div>
