@@ -10,8 +10,6 @@
         ?>
 
 
-<?php
-
             <div class="col">
                 <div class="card">
                     <img src="<?php echo $rows['picture']  ?>" class="card-img-top" alt="Post picture">
