@@ -88,7 +88,7 @@
                 </a>
                 <?php
                         include_once("comments.php");
-                        ?>
+                ?>
             </div>
         </div>
     </div>
