@@ -86,25 +86,17 @@
 
           var form_data = new FormData(this);
 
-          var postTitle = $('#postTitle').val();
-          var postContent = $('#postContent').val();
-          var postPic =$('#postPic').val();
 
           $.ajax({
               url: "./post_process/insert.php",
               method: "post",
-              dataType: "JSON",
-              data:{
-          postTitle:postTitle,
-          postContent:postContent,
-          postPic:postPic,
-          btnReg:btnReg,
-      },
+              data: form_data,
+              cache : false,
               processData: false,
               conenttype: false,
               success:function(data){
                 var obj = data;
-
+                alert(data.message);
                 if (obj.status == 200) {
                   Window.location.assign('home.php');
                 }
