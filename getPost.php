@@ -9,6 +9,9 @@
             $postID = $rows['postID'];
         ?>
 
+
+<?php
+
             <div class="col">
                 <div class="card">
                     <img src="<?php echo $rows['picture']  ?>" class="card-img-top" alt="Post picture">
@@ -38,6 +41,7 @@
 
 ?>
 <script>
+
 function viewPost(str) {
     window.location.assign('./viewPost.php?pid=' + str);
 }
