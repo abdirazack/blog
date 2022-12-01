@@ -3,9 +3,7 @@ CREATE TABLE `comments` (
   `commentContent` text NOT NULL,
   `postID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `commentCount` int(11) NOT NULL,
   `likeCount` int(11) NOT NULL,
-  `status` varchar(100) NOT NULL,
   `dateCreated` timestamp NOT NULL DEFAULT current_timestamp(),
   `dateUpdated` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -30,7 +30,7 @@
 
 
 
-<div class="bordered shadow">
+<div class="bordered text-center shadow">
     <div class="col-5">
         <div class="card mb-4">
 
@@ -54,12 +54,11 @@
                     </div>
                     <hr>
                     <p>
-                        <?php //Post Content
-                            echo $postDesc;
-                        ?>
+                        <!-- //Post Image -->
+                        <img src="<?php echo $imgPath; ?>" class="d-block ui-w-40 rounded-3 w-100" alt="">
+                        <!-- //Post Content -->
+                        <?php  echo $postDesc;?>
                     </p>
-                    <img src="<?php //Post Image
-                        echo $imgPath; ?>" class="d-block ui-w-40 rounded-3 w-100" alt="">
                 </div>
 
 
