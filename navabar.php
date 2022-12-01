@@ -45,6 +45,9 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
+            <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
+        <div class="handle"></div>
+      </button>
             <li><a class="dropdown-item" href="./logout.php">Log Out</a></li>
           </ul>
         </li>
@@ -53,6 +56,13 @@
   </div>
 </nav>
 
+<div class="justify-content-around">
+   <i class="fas fa-sun"></i> 
+    <div class="form-check form-switch ">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+    </div>
+  <i class="fas fa-moon"></i>
+</div>
 
 <script>
 $(document).ready(function(){
