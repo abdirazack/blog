@@ -9,12 +9,12 @@
             $postID = $rows['postID'];
         ?>
        
-            <div class="card" style="width: 50rem;">
+            <div class="card" >
                 <img src="<?php echo $rows['picture']  ?>" class="card-img-top" alt="">
                 <div class="card-body">
                         <h5 class="card-title">  <?php echo $rows['title']  ?></h5>
                         <!-- <p class="card-text">  <?php echo $rows['content']  ?> </p> -->
-                        <Button onclick="viewPost()" class="btn btn-primary">View Post</Button>
+                        <Button onclick="viewPost()" class="btn btn-primary w-100">View Post</Button>
                 </div>
             </div>
         <?php
