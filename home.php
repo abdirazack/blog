@@ -43,45 +43,14 @@
     </div>
 
     <h2 class='mx-5'>Most Viewed Posts of All Time</h2>
-  <div class="d-flex justify-content-evenly">
-        <div class="card" style="width: 20rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magni dicta,
-                    nesciunt mollitia, vero, nam eveniet neque molestiae unde in delectus dolorum explicabo a possimus
-                    consequuntur temporibus corporis et qui. </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 20rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 20rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
+    <div class="d-flex justify-content-evenly" id="displayPostArea">
+        
     </div>
-</div>
 
 <script>
 
     $(document).ready(function(){
         $("#error").addClass("d-none");
-
-        
     });
 
     function adduser(){
@@ -113,4 +82,25 @@
         }
      });
     }
+
+    $(document).ready(function(){
+      displayPosts();
+  });
+  //display data
+  
+  function displayPosts(){
+    var displayData="true";
+   $.ajax({
+    url:"getPost.php",
+    type:'post',
+    data:{
+      displaysend:displayData
+
+    },
+    success:function(data,status){
+      $('#displayPostArea').html(data);
+
+     }
+  });
+}
 </script>
