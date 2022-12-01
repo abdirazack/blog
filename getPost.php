@@ -8,16 +8,28 @@
         while($rows=mysqli_fetch_array($query)){
             $postID = $rows['postID'];
         ?>
-       
-            <div class="card" >
-                <img src="<?php echo $rows['picture']  ?>" class="card-img-top" alt="">
-                <div class="card-body">
-                        <h5 class="card-title">  <?php echo $rows['title']  ?></h5>
-                        <!-- <p class="card-text">  <?php echo $rows['content']  ?> </p> -->
-                        <Button onclick="viewPost()" class="btn btn-primary w-100">View Post</Button>
-                </div>
-            </div>
-        <?php
+
+<!--====================================================================================================================-->
+<div style="margin:0%; padding: 0%;" class="card w-50 h-50 mb-5">
+
+
+        <div class="card-header  p-0 m-0 h-100 w-100 mb-1 ">
+            <h5 class="text-xl-start m-3"> <?php echo $rows['title']  ?></h5>
+        </div>
+
+        <div class="card-img">
+            <img src="<?php echo $rows['picture']  ?>" class="card-img-top mx-auto d-block" style="width: 98%; height: 18rem;" alt="">
+        </div>
+
+        <!-- <p class="card-text">  <?php echo $rows['content']  ?> </p> -->
+        <div class="card-footer p-0 m-0 h-100 w-100 mt-1 rounded-bottom">
+            <Button onclick="viewPost()" class="btn btn-primary h-100 w-100 rounded-0 rounded-bottom bg-secondary border-0">View Post</Button>
+        </div>
+
+
+</div>
+<!--====================================================================================================================-->
+<?php
         } 
 
     }
@@ -35,7 +47,7 @@
 
 ?>
 <script>
-    function viewPost(){
-         window.location.assign("./viewPost.php?pid=<?php echo $postID;?>")
-    }
+function viewPost() {
+    window.location.assign("./viewPost.php?pid=<?php echo $postID;?>")
+}
 </script>
