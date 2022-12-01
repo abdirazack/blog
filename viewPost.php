@@ -3,11 +3,11 @@ include("db_connect.php");
 ?>
 <?php
                                 
-                                $getTitle = mysqli_query($conn, "SELECT posts.title FROM posts where postID = 1;");
+                                $getTitle = mysqli_query($conn, "SELECT posts.title FROM posts where postID = 2;");
                                 $getUser = mysqli_query($conn, "SELECT users.username FROM users INNER JOIN posts ON users.userID = posts.userID;");
                                 $getDate = mysqli_query($conn, "SELECT users.dateCreated FROM users INNER JOIN posts ON users.userID = posts.userID;");
-                                $getImage = mysqli_query($conn, "SELECT posts.picture FROM posts where postID = 1;");
-                                $getContent = mysqli_query($conn, "SELECT posts.content FROM posts where postID = 1;");
+                                $getImage = mysqli_query($conn, "SELECT posts.picture FROM posts where postID = 2;");
+                                $getContent = mysqli_query($conn, "SELECT posts.content FROM posts where postID = 2;");
 
                                 if($rowTitle = mysqli_fetch_assoc($getTitle)){
                                     $theTitle = $rowTitle["title"];
@@ -53,7 +53,7 @@ include("db_connect.php");
                     <hr>
                     <p>
                         <?php //Post Content
-                        echo $postDesc;
+                            echo $postDesc;
                         ?>
                     </p>
                     <img src="<?php //Post Image
