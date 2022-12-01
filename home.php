@@ -1,8 +1,9 @@
 <?php include_once('navabar.php');?>
 <div id="container-fluid">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary float-end mx-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Create New Posts
+    <button title= "Create new post" type="button" class="btn btn-primary float-end mx-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      
+    <i class="fas fa-plus align-middle"></i>
     </button>
     <add key="webpages:Enabled" value="true" />
 
@@ -28,7 +29,7 @@
                     <br>
                     <div class='form-group'>
                           <label class="form-label" for="postPic">Select a picture for your post</label>
-                          <input type="file" class="form-control btn-primary" id="postPic" name="postPic">
+                          <input type="file" class="form-control btn-primary" id="avatar" name="avatar">
                     </div>
                     </div>
                 
@@ -80,33 +81,7 @@
     $(document).ready(function(){
         $("#error").addClass("d-none");
 
-        $("#postForm").on("submit",function(e){
-          e.preventDefault();
-         
-
-          var form_data = new FormData(this);
-
-
-          $.ajax({
-              url: "./post_process/insert.php",
-              method: "post",
-              data: form_data,
-              cache : false,
-              processData: false,
-              conenttype: false,
-              success:function(data){
-                var obj = data;
-                alert(data.message);
-                if (obj.status == 200) {
-                  Window.location.assign('home.php');
-                }
-                if (obj.status == 404) {
-                    $("#error").removeClass("d-none");
-                    $("#error").text(obj.message);
-                }
-              }
-          });
-        });
+        
     });
 
     function adduser(){

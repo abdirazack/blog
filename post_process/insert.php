@@ -1,6 +1,8 @@
 <?php 
     require_once '../db_connect.php';
 
+    if(isset($_POST['btnReg']) && isset($_FILES['avatar'])){
+
         $postTitle =  htmlspecialchars($_POST['postTitle']);
         $postContent  = htmlspecialchars($_POST['postContent']);
         $status =  'Active';
@@ -23,11 +25,11 @@
             $userID = $_SESSION['userID'];
         }
 
-        $filename =  $_FILES["postPic"]["name"];
-        $filesize = ($_FILES["postPic"]["size"]/1024);
-        $filetype =  $_FILES["postPic"]["type"];
-        $temp_name = $_FILES["postPic"]["tmp_name"];
-        $fileError = $_FILES["postPic"]["error"];
+        $filename =  $_FILES["avatar"]["name"];
+        $filesize = ($_FILES["avatar"]["size"]/1024);
+        $filetype =  $_FILES["avatar"]["type"];
+        $temp_name = $_FILES["avatar"]["tmp_name"];
+        $fileError = $_FILES["avatar"]["error"];
 
         if(empty($postTitle)){
             $data = ['message'=>'User Name can not be empty', 'status'=>404];
@@ -39,6 +41,7 @@
             echo json_encode($data);
             return ;
         }
+
 
         if ((( $filetype == "image/png") || ( $filetype == "image/jpeg") || ( $filetype == "image/pjpeg")) && ($filesize  < 200))
         {
@@ -59,17 +62,18 @@
                 else
                 {
                     if(move_uploaded_file($temp_name , "../Pictures/Posts/" .  $filename)){
-                        $postPic = "./Pictures/Posts/" .  $filename;
-                        $sql = "INSERT INTO posts VALUES('null', '$postTitle', '$postContent', '$postPic', '0', '0', '$status', $userID, null, null)";
+                        $avatar = "./Pictures/Posts/" .  $filename;
+                        $sql = "INSERT INTO posts VALUES('null', '$postTitle', '$postContent', '$avatar', '0', '0', '$status', $userID, null, null)";
 
                         $query_insert = mysqli_query($conn, $sql);
                         if($query_insert){
-                            $data = ['message'=>'Success', 'status'=>200];
-                            echo json_encode($data);
-                            return ;
+                            // $data = ['message'=>'Success', 'status'=>200];
+                            // echo json_encode($data);
+                            // return ;
+                            header("location: ../home.php");
                         }
                         else{
-                            $data = ['message'=>'Failed to register database', 'status'=>404];
+                            $data = ['message'=>'Failed to Create Posts', 'status'=>404];
                             echo json_encode($data);
                             return ;
                         }
@@ -90,4 +94,10 @@
                         return ;
         }
 
+    }
+    else{
+        $data = ['message'=>'Button was not set', 'status'=>404];
+        echo json_encode($data);
+        return ;
+    }
 ?>
