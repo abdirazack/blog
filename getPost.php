@@ -14,7 +14,7 @@
                 <div class="card-body">
                         <h5 class="card-title">  <?php echo $rows['title']  ?></h5>
                         <!-- <p class="card-text">  <?php echo $rows['content']  ?> </p> -->
-                        <Button onclick="viewPost()" class="btn btn-primary w-100">View Post</Button>
+                        <Button onclick="viewPost('<?php echo $postID;?>')" class="btn btn-primary w-100">View Post</Button>
                 </div>
             </div>
         <?php
@@ -35,7 +35,7 @@
 
 ?>
 <script>
-    function viewPost(){
-         window.location.assign("./viewPost.php?pid=<?php echo $postID;?>")
+    function viewPost(str){
+         window.location.assign('./viewPost.php?pid='+str);
     }
 </script>
