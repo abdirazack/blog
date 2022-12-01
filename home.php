@@ -43,7 +43,7 @@
     </div>
 
     <h2 class='mx-5'>Most Viewed Posts of All Time</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4" id="displayPostArea">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mx-4" id="displayPostArea">
   
   </div>>
 
