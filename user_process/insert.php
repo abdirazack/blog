@@ -60,7 +60,7 @@
                             // return ;
                             $_SESSION['username'] = $username;
                             $_SESSION['email'] = $email;
-                            header("location: ../home.php");
+                            header("location: ../login.php");
                         }
                         else{
                             $data = ['message'=>'Failed to register database', 'status'=>404];

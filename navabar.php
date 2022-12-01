@@ -56,14 +56,6 @@
   </div>
 </nav>
 
-<div class="justify-content-around">
-   <i class="fas fa-sun"></i> 
-    <div class="form-check form-switch ">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-    </div>
-  <i class="fas fa-moon"></i>
-</div>
-
 <script>
 $(document).ready(function(){
   $(".nav-item").hover(function(){
