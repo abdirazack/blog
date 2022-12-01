@@ -2,6 +2,7 @@
     include("db_connect.php");
 
     $posid = $_GET['pid'];
+    $_SESSION['currentPost'] = $posid;
 ?>
 <?php
                                 

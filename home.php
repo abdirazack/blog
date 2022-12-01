@@ -92,7 +92,7 @@
         function displayPosts() {
             var displayData = "true";
             $.ajax({
-                url: "getPost.php",
+                url: "./post_process/getPost.php",
                 type: 'post',
                 data: {
                     displaysend: displayData
