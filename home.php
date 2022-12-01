@@ -43,14 +43,10 @@
     </div>
 
     <h2 class='mx-5'>Most Viewed Posts of All Time</h2>
-    <!--=====================================================Posts Start======================================================-->
-    <div class="container">
-        <div class="row">
-            <div class="row" id="displayPostArea"></div>
-            <div class="row-md-auto" id="displayPostArea"></div>
-            <div class="row row-lg-9" id="displayPostArea"></div>
-        </div>
-    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mx-4" id="displayPostArea">
+  
+  </div>>
 
     <!--=====================================================Posts End======================================================-->
     <script>

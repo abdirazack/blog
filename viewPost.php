@@ -1,13 +1,15 @@
 <?php include_once("navabar.php");
-include("db_connect.php");
+    include("db_connect.php");
+
+    $posid = $_GET['pid'];
 ?>
 <?php
                                 
-                                $getTitle = mysqli_query($conn, "SELECT posts.title FROM posts where postID = 2;");
+                                $getTitle = mysqli_query($conn, "SELECT posts.title FROM posts where postID = $posid;");
                                 $getUser = mysqli_query($conn, "SELECT users.username FROM users INNER JOIN posts ON users.userID = posts.userID;");
                                 $getDate = mysqli_query($conn, "SELECT users.dateCreated FROM users INNER JOIN posts ON users.userID = posts.userID;");
-                                $getImage = mysqli_query($conn, "SELECT posts.picture FROM posts where postID = 2;");
-                                $getContent = mysqli_query($conn, "SELECT posts.content FROM posts where postID = 2;");
+                                $getImage = mysqli_query($conn, "SELECT posts.picture FROM posts where postID = $posid;");
+                                $getContent = mysqli_query($conn, "SELECT posts.content FROM posts where postID = $posid;");
 
                                 if($rowTitle = mysqli_fetch_assoc($getTitle)){
                                     $theTitle = $rowTitle["title"];
@@ -86,7 +88,7 @@ include("db_connect.php");
                 </a>
                 <?php
                         include_once("comments.php");
-                        ?>
+                ?>
             </div>
         </div>
     </div>
