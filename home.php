@@ -1,8 +1,8 @@
 <?php include_once('navabar.php');?>
 <div id="container-fluid">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary float-end mx-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Create New Posts
+    <button type="button" class="btn btn-primary float-end mx-4" style="width: 50px; height: 50px;border-radius:30px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+       <div class="fas fa-plus w-100"></div> 
     </button>
     <add key="webpages:Enabled" value="true" />
 
