@@ -1,9 +1,9 @@
-<?php include_once('navabar.php');?>
+<?php include_once('navabar.php'); ?>
 <div id="container-fluid">
     <!-- Button trigger modal -->
 
     <button type="button" class="btn btn-primary float-end mx-4" style="width: 50px; height: 50px;border-radius:30px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
-       <div class="fas fa-plus w-100"></div> 
+        <div class="fas fa-plus w-100"></div>
     </button>
     <add key="webpages:Enabled" value="true" />
 
@@ -16,91 +16,96 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <form id="postForm" action="./post_process/insert.php" method="POST" enctype="multipart/form-data">
-                    <div id="error" style="color: red; font-size: 24px;"></div>
-                    <div class="form-group">
-                        <label class="form-label">Post Title</label>
-                        <input type="text" class="form-control" name="postTitle" id="postTitle">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Post Content</label>
-                        <textarea class="form-control" id="postContent" name="postContent" rows="12" columns="24"></textarea>
-                    </div>
-                    <br>
-                    <div class='form-group'>
-                          <label class="form-label" for="postPic">Select a picture for your post</label>
-                          <input type="file" class="form-control btn-primary" id="avatar" name="avatar">
-                    </div>
-                    </div>
-                
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <input type="submit" name= 'btnReg' id="btnReg"  class="btn btn-outline-primary btn-lg" value="Create Post" />
-                  </div>
+                    <form id="postForm" action="./post_process/insert.php" method="POST" enctype="multipart/form-data">
+                        <div id="error" style="color: red; font-size: 24px;"></div>
+                        <div class="form-group">
+                            <label class="form-label">Post Title</label>
+                            <input type="text" class="form-control" name="postTitle" id="postTitle">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Post Content</label>
+                            <textarea class="form-control" id="postContent" name="postContent" rows="12" columns="24"></textarea>
+                        </div>
+                        <br>
+                        <div class='form-group'>
+                            <label class="form-label" for="postPic">Select a picture for your post</label>
+                            <input type="file" class="form-control btn-primary" id="avatar" name="avatar">
+                        </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" name='btnReg' id="btnReg" class="btn btn-outline-primary btn-lg" value="Create Post" />
+                </div>
                 </form>
             </div>
         </div>
     </div>
 
     <h2 class='mx-5'>Most Viewed Posts of All Time</h2>
-    <div class="d-flex justify-content-evenly" id="displayPostArea">
-        
+    <!--=====================================================Posts Start======================================================-->
+    <div class="container">
+        <div class="row">
+            <div class="row" id="displayPostArea"></div>
+            <div class="row-md-auto" id="displayPostArea"></div>
+            <div class="row row-lg-9" id="displayPostArea"></div>
+        </div>
     </div>
 
-<script>
+    <!--=====================================================Posts End======================================================-->
+    <script>
+        $(document).ready(function() {
+            $("#error").addClass("d-none");
+        });
 
-    $(document).ready(function(){
-        $("#error").addClass("d-none");
-    });
+        function adduser() {
+            var postTitle = $('#postTitle').val();
+            var postContent = $('#postContent').val();
+            var postPic = $('#postPic').val();
+            var btnReg = $('#btnReg').val();
 
-    function adduser(){
-      var postTitle = $('#postTitle').val();
-      var postContent = $('#postContent').val();
-      var postPic =$('#postPic').val();
-      var btnReg=$('#btnReg').val();
-      
-      $.ajax({
-        url:"post_process/insert.php",
-        type:'post',
-        data:{
-          postTitle:postTitle,
-          postContent:postContent,
-          postPic:postPic,
-          btnReg:btnReg,
-      },
-        success:function(data){
-            alert(data);
-            var obj = jQuery.parseJSON(data);
-            if (obj.status == 200) {
-               Window.location.assign('home.php');
-            }
-            if (obj.status == 404) {
-                $("#error").removeClass("d-none");
-                $("#error").text(obj.message);
-            }
-             
+            $.ajax({
+                url: "post_process/insert.php",
+                type: 'post',
+                data: {
+                    postTitle: postTitle,
+                    postContent: postContent,
+                    postPic: postPic,
+                    btnReg: btnReg,
+                },
+                success: function(data) {
+                    alert(data);
+                    var obj = jQuery.parseJSON(data);
+                    if (obj.status == 200) {
+                        Window.location.assign('home.php');
+                    }
+                    if (obj.status == 404) {
+                        $("#error").removeClass("d-none");
+                        $("#error").text(obj.message);
+                    }
+
+                }
+            });
         }
-     });
-    }
 
-    $(document).ready(function(){
-      displayPosts();
-  });
-  //display data
-  
-  function displayPosts(){
-    var displayData="true";
-   $.ajax({
-    url:"getPost.php",
-    type:'post',
-    data:{
-      displaysend:displayData
+        $(document).ready(function() {
+            displayPosts();
+        });
+        //display data
 
-    },
-    success:function(data,status){
-      $('#displayPostArea').html(data);
+        function displayPosts() {
+            var displayData = "true";
+            $.ajax({
+                url: "getPost.php",
+                type: 'post',
+                data: {
+                    displaysend: displayData
 
-     }
-  });
-}
-</script>
+                },
+                success: function(data, status) {
+                    $('#displayPostArea').html(data);
+
+                }
+            });
+        }
+    </script>
