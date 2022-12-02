@@ -1,6 +1,5 @@
 <?php 
     require_once '../db_connect.php';
-    session_start();
 
     if(isset($_POST['btnReg']) && isset($_FILES['avatar'])){
 
@@ -31,8 +30,8 @@
             return ;
         }
 
-        if ((( $filetype == "image/png") || ( $filetype == "image/jpeg") || ( $filetype == "image/pjpeg")) && ($filesize  < 200))
-        {
+        // if ((( $filetype == "image/PNG") || ( $filetype == "image/jpeg") || ( $filetype == "image/JPG") || ( $filetype == "image/pjpeg")) && ($filesize  < 2000))
+        // {
             if ($fileError > 0)
             {
                 $data = ['message'=> " $fileError ", 'status'=>404];
@@ -76,13 +75,13 @@
                     
                 }
             }
-        }
-        else
-        {
-            $data = ['message'=>'Invalid File', 'status'=>404];
-                        echo json_encode($data);
-                        return ;
-        }
+        // }
+        // else
+        // {
+        //     $data = ['message'=>'Invalid File', 'status'=>404];
+        //                 echo json_encode($data);
+        //                 return ;
+        // }
 
     }
     else{
