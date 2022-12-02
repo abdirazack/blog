@@ -35,7 +35,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
                 <input type="password" id="password" name= "password" class="form-control form-control-lg" />
               </div>
 
-              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="./Forget_Pass.php">Forgot password?</a></p>
 
               <button class="btn btn-outline-light btn-lg px-5" type="submit" name="btnLogin" id = "btnLogin">Login</button>
 
