@@ -15,7 +15,7 @@
 <div class="card m-1 p-0" style="width: 45%;">
 
     <div class="card-header bg-dark ml-0 p-0 " style="font-family: 'poppins'; color: white;">
-        <h5 class="m-2 text-uppercase"> <?php echo $rows['title']  ?></h5>
+        <h5 class="m-2 text-uppercase text-center"> <?php echo $rows['title']  ?></h5>
     </div>
 
     <div class="card-body m-0 p-0">
