@@ -11,6 +11,7 @@
 
 
 
+
 <div class="card m-1 p-0" style="width: 45%;">
 
     <div class="card-header bg-dark ml-0 p-0 " style="font-family: 'poppins'; color: white;">
@@ -38,7 +39,6 @@
 
 <?php
         } 
-
     }
      else{
         $data = ['message'=>'No Data found in posts', 'status'=>404];

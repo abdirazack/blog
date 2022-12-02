@@ -1,10 +1,13 @@
 <?php include_once("navabar.php");
     include("db_connect.php");
 
+    $viewCount = 1;
     $posid = $_GET['pid'];
     $_SESSION['currentPost'] = $posid;
-?>
-<?php
+
+
+    $updateViewCount = mysqli_query($conn,"UPDATE posts SET  viewCount = viewCount + '$viewCount'  where  postID = $posid");
+
     $viewPost_query =  mysqli_query($conn,"SELECT * FROM postview where  postID = $posid");
     $data  = mysqli_fetch_assoc($viewPost_query);                         
     $theTitle = $data['title'];
@@ -12,6 +15,14 @@
     $dateCreated = $data['dateCreated'];
     $imgPath = $data['picture'];
     $postDesc = $data['content'];
+    $views = $data['viewCount'];
+
+
+    //Get cooments from Comments table for the current post
+    $getCommentCount = mysqli_query($conn, "SELECT COUNT(*) as commentCount from comments where postID = '$posid'");
+    $comments  = mysqli_fetch_assoc($getCommentCount);    
+    $commentCount = $comments['commentCount'];
+
 ?>
 
 
@@ -56,19 +67,20 @@
                 <a href="javascript:void(0)" class="d-inline-block text-decoration-none">
                     <i class="fas fa-heart"></i>
                     <small class="align-middle p-3">
-                        <!--Favourite-->
+                    <?php echo $commentCount;?>
                     </small>
                 </a>
                 <a href="javascript:void(0)" class="d-inline-block text-decoration-none ml-3">
                     <i class="fas fa-comment align-middle text-muted "></i>
                     <small class=" p-3 align-middle">
-                        <!--Comment Count-->
+                    <?php echo $commentCount;?>
                     </small>
                 </a>
                 <a href="javascript:void(0)" class="d-inline-block text-decoration-none ml-3">
                     <i class="fas fa-eye align-middle text-muted "></i>
                     <small class="align-middle">
                         <!--View Count-->
+                        <?php echo $views;?>
                     </small>
                 </a>
                 <?php
