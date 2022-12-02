@@ -1,5 +1,6 @@
 <?php include_once("navabar.php");
     include("db_connect.php");
+    include("functions.php");
 
     $viewCount = 1;
     $posid = $_GET['pid'];
@@ -46,7 +47,7 @@
                            //Date Created
                                  $dateCreated = strtotime($dateCreated); echo "<br>";
                                  $dateCreated = date("d-M-Y H:i", $dateCreated);
-                                 echo "<small> $dateCreated</small> ";
+                                 echo "<small>". time_elapsed_string($dateCreated) ."</small> ";
                         ?>
                     </div>
                     <hr>

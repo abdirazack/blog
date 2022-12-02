@@ -15,8 +15,7 @@
         }
 
        
-        $sql = "INSERT INTO comments VALUES('null', '$commentContent', '$postID', '$userID',  '$likeCount' , null, null)";
-
+        $sql = "INSERT INTO comments VALUES(null, '$commentContent', '$postID', '$userID',  '$likeCount' , null, null)";
         $query_insert = mysqli_query($conn, $sql);
         if($query_insert){
             $data = ['message'=>'Success', 'status'=>200];

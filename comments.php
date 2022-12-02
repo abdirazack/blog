@@ -18,7 +18,7 @@
 
                 <div class="card mb-4 " id="displayCommentArea">
                     
-                    <h4 id="nocomment">Be the First To Comment</h4>
+                    
                 </div>
 
             </div>
@@ -59,7 +59,7 @@
             var btnComment = $('#btnComment').val();
 
             $.ajax({
-                url: "comments_process/insert.php",
+                url: "./comments_process/insert.php",
                 type: 'post',
                 data: {
                     commentContent: commentContent,
@@ -68,11 +68,12 @@
                     btnComment: btnComment,
                 },
                 success: function(data) {
-                    if (data.status === 200) {
-                        $('#commentContent').val("");
+                    var obj = jQuery.parseJSON(data);
+                    if (obj.status === 200) {
                         displayComments();
+                        $('#commentContent').val("");
                     }
-                    if (data.status === 404) {
+                    if (obj.status === 404) {
                         $("#error").removeClass("d-none");
                         $("#error").text(obj.message);
                     }

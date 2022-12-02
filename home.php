@@ -8,7 +8,7 @@
     </button>
     <add key="webpages:Enabled" value="true" />
 
-    <!-- Modal -->
+    <!-- Modal for creating new post-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-lg">
             <div class="modal-content">
@@ -49,8 +49,8 @@
     <div class="container ">
         <div class="row">
             <div class="row col-sm" id="displayPostArea"></div>
-            <div class="row col-md-auto" id="displayPostArea"></div>
-            <div class="row row-lg-1" id="displayPostArea"></div>
+            <!-- <div class="row col-md-auto" id="displayPostArea"></div>
+            <div class="row row-lg-1" id="displayPostArea"></div> -->
         </div>
     </div>
     <!--=====================================================Posts End======================================================-->
