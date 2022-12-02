@@ -8,8 +8,6 @@
         while($rows=mysqli_fetch_array($query)){
             $postID = $rows['postID'];
         ?>
-
-
             <div class="col">
                 <div class="card">
                     <img src="<?php echo $rows['picture']  ?>" class="card-img-top" alt="Post picture">
@@ -23,7 +21,6 @@
             </div>
             <?php
         } 
-
     }
      else{
         $data = ['message'=>'No Data found in posts', 'status'=>404];
