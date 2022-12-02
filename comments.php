@@ -76,9 +76,6 @@
                         $("#error").removeClass("d-none");
                         $("#error").text(obj.message);
                     }
-                    if (data.status === 22) {
-                        $("#nocomment").removeClass("d-none");
-                    }
 
                 }
             });

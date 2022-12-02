@@ -28,7 +28,7 @@
 
     }
      else{
-        // $data = ['message'=>'', 'status'=>22];
+         $data = ['message'=>'', 'status'=>404];
         // echo json_encode($data);
         return ;
     }
