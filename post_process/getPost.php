@@ -10,18 +10,33 @@
         ?>
 
 
-            <div class="col">
-                <div class="card">
-                    <img src="<?php echo $rows['picture']  ?>" class="card-img-top" alt="Post picture">
-                    <div class="card-body">
-                        <h5 class="card-title"> <?php echo $rows['title']  ?></h5>
-                        <!-- <p class="card-text">  <?php echo $rows['content']  ?> </p> -->
-                        <Button onclick="viewPost('<?php echo $postID;?>')" class="btn btn-primary w-100">View Post</Button>
 
-                    </div>
-                </div>
-            </div>
-            <?php
+<div class="card m-1 p-0" style="width: 45%;">
+
+    <div class="card-header bg-dark ml-0 p-0 " style="font-family: 'poppins'; color: white;">
+        <h5 class="m-2 text-uppercase"> <?php echo $rows['title']  ?></h5>
+    </div>
+
+    <div class="card-body m-0 p-0">
+        <!-- <p class="card-text">  <?php echo $rows['content']  ?> </p> -->
+        <div class="card-img">
+            <img src="<?php echo $rows['picture']  ?>" class="mt-1 mb-1 p-0" style="width: 100%; height: 250px;" alt="Post picture">
+        </div>
+    </div>
+
+    <div class="card-footer bg-primary m-0 p-0" style="height: 40px;">
+    <style>
+        .btn:hover{
+            color: white;
+            background-color: green;
+        }
+    </style>
+        <Button onclick="viewPost('<?php echo $postID;?>')" class="btn btn-succes h-100 m-0 p-0 w-100 " style="font-family: 'poppins'; font-weight:600;">View Post</Button>
+    </div>
+
+</div>
+
+<?php
         } 
 
     }
@@ -39,7 +54,6 @@
 
 ?>
 <script>
-
 function viewPost(str) {
     window.location.assign('./viewPost.php?pid=' + str);
 }
