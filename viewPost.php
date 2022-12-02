@@ -5,29 +5,14 @@
     $_SESSION['currentPost'] = $posid;
 ?>
 <?php
-                                
-                                $getTitle = mysqli_query($conn, "SELECT posts.title FROM posts where postID = $posid;");
-                                $getUser = mysqli_query($conn, "SELECT users.username FROM users INNER JOIN posts ON users.userID = posts.userID;");
-                                $getDate = mysqli_query($conn, "SELECT users.dateCreated FROM users INNER JOIN posts ON users.userID = posts.userID;");
-                                $getImage = mysqli_query($conn, "SELECT posts.picture FROM posts where postID = $posid;");
-                                $getContent = mysqli_query($conn, "SELECT posts.content FROM posts where postID = $posid;");
-
-                                if($rowTitle = mysqli_fetch_assoc($getTitle)){
-                                    $theTitle = $rowTitle["title"];
-                                }
-                                if($rowUser = mysqli_fetch_assoc($getUser)){
-                                    $userName = $rowUser["username"];
-                                }
-                                if ($rowDate = mysqli_fetch_assoc($getDate)){
-                                    $dateCreated = $rowDate["dateCreated"];
-                                }
-                                if ($rowImage = mysqli_fetch_assoc($getImage)){
-                                    $imgPath = $rowImage["picture"];
-                                }
-                                if ($rowContent = mysqli_fetch_assoc($getContent)){
-                                    $postDesc = $rowContent["content"];
-                                }
-    ?>
+    $viewPost_query =  mysqli_query($conn,"SELECT * FROM postview where  postID = $posid");
+    $data  = mysqli_fetch_assoc($viewPost_query);                         
+    $theTitle = $data['title'];
+    $userName = $data['username'];
+    $dateCreated = $data['dateCreated'];
+    $imgPath = $data['picture'];
+    $postDesc = $data['content'];
+?>
 
 
 
@@ -48,7 +33,7 @@
                         <?php //Username
                             echo " <strong>$userName</strong>";
                            //Date Created
-                                 $dateCreated = strtotime($dateCreated);
+                                 $dateCreated = strtotime($dateCreated); echo "<br>";
                                  $dateCreated = date("d-M-Y H:i", $dateCreated);
                                  echo "<small> $dateCreated</small> ";
                         ?>
@@ -64,7 +49,7 @@
 
 
                 <a href="javascript:void(0)" class="ui-rect ui-bg-cover"
-                    style="background-image: url('/Pictures/Profiles/bp.jpg');"></a>
+                    style="background-image: url('./Pictures/Profiles/bp.jpg');"></a>
             </div>
 
             <div class="card-footer">
