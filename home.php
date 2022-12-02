@@ -2,7 +2,8 @@
 <div id="container-fluid">
     <!-- Button trigger modal -->
 
-    <button type="button" class="btn btn-primary float-end mx-4" style="width: 50px; height: 50px;border-radius:30px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary float-end mx-4" style="width: 50px; height: 50px;border-radius:30px;"
+        data-bs-toggle="modal" data-bs-target="#exampleModal">
         <div class="fas fa-plus w-100"></div>
     </button>
     <add key="webpages:Enabled" value="true" />
@@ -24,7 +25,8 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Post Content</label>
-                            <textarea class="form-control" id="postContent" name="postContent" rows="12" columns="24"></textarea>
+                            <textarea class="form-control" id="postContent" name="postContent" rows="12"
+                                columns="24"></textarea>
                         </div>
                         <br>
                         <div class='form-group'>
@@ -35,7 +37,8 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" name='btnReg' id="btnReg" class="btn btn-outline-primary btn-lg" value="Create Post" />
+                    <input type="submit" name='btnReg' id="btnReg" class="btn btn-outline-primary btn-lg"
+                        value="Create Post" />
                 </div>
                 </form>
             </div>
@@ -43,65 +46,67 @@
     </div>
 
     <h2 class='mx-5'>Most Viewed Posts of All Time</h2>
-
-    <div class="row row-cols-1 row-cols-md-3 g-4 mx-4" id="displayPostArea">
-  
-  </div>>
-
+    <div class="container ">
+        <div class="row">
+            <div class="row col-sm" id="displayPostArea"></div>
+            <div class="row col-md-auto" id="displayPostArea"></div>
+            <div class="row row-lg-1" id="displayPostArea"></div>
+        </div>
+    </div>
     <!--=====================================================Posts End======================================================-->
     <script>
-        $(document).ready(function() {
-            $("#error").addClass("d-none");
-        });
+    $(document).ready(function() {
+        $("#error").addClass("d-none");
+    });
 
-        function adduser() {
-            var postTitle = $('#postTitle').val();
-            var postContent = $('#postContent').val();
-            var postPic = $('#postPic').val();
-            var btnReg = $('#btnReg').val();
+    function adduser() {
+        var postTitle = $('#postTitle').val();
+        var postContent = $('#postContent').val();
+        var postPic = $('#postPic').val();
+        var btnReg = $('#btnReg').val();
 
-            $.ajax({
-                url: "post_process/insert.php",
-                type: 'post',
-                data: {
-                    postTitle: postTitle,
-                    postContent: postContent,
-                    postPic: postPic,
-                    btnReg: btnReg,
-                },
-                success: function(data) {
-                    alert(data);
-                    var obj = jQuery.parseJSON(data);
-                    if (obj.status == 200) {
-                        Window.location.assign('home.php');
-                    }
-                    if (obj.status == 404) {
-                        $("#error").removeClass("d-none");
-                        $("#error").text(obj.message);
-                    }
-
+        $.ajax({
+            url: "post_process/insert.php",
+            type: 'post',
+            data: {
+                postTitle: postTitle,
+                postContent: postContent,
+                postPic: postPic,
+                btnReg: btnReg,
+            },
+            success: function(data) {
+                alert(data);
+                var obj = jQuery.parseJSON(data);
+                if (obj.status == 200) {
+                    Window.location.assign('home.php');
                 }
-            });
-        }
-
-        $(document).ready(function() {
-            displayPosts();
-        });
-        //display data
-
-        function displayPosts() {
-            var displayData = "true";
-            $.ajax({
-                url: "./post_process/getPost.php",
-                type: 'post',
-                data: {
-                    displaysend: displayData
-
-                },
-                success: function(data, status) {
-                    $('#displayPostArea').html(data);
-
+                if (obj.status == 404) {
+                    $("#error").removeClass("d-none");
+                    $("#error").text(obj.message);
                 }
-            });
-        }
+
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        displayPosts();
+    });
+    //display data
+
+    function displayPosts() {
+        var displayData = "true";
+        $.ajax({
+            url: "./post_process/getPost.php",
+            type: 'post',
+            data: {
+                displaysend: displayData
+
+            },
+            success: function(data, status) {
+                $('#displayPostArea').html(data);
+
+            }
+        });
+    }
     </script>
