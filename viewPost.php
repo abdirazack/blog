@@ -28,8 +28,8 @@
 
 
 
-<div class="bordered text-center shadow">
-    <div class="col-5">
+
+<div class="container">
         <div class="card mb-4">
 
             <div class="card-header">
@@ -38,43 +38,36 @@
 
             <div class="card-body ">
 
-                <div class="media mb-3">
 
-                    <div class="media-body ml-3">
-
-                        <?php //Username
+                <?php //Username
                             echo " <strong>$userName</strong>";
                            //Date Created
                                  $dateCreated = strtotime($dateCreated); echo "<br>";
                                  $dateCreated = date("d-M-Y H:i", $dateCreated);
                                  echo "<small>". time_elapsed_string($dateCreated) ."</small> ";
                         ?>
-                    </div>
-                    <hr>
-                    <p>
-                        <!-- //Post Image -->
-                        <img src="<?php echo $imgPath; ?>" class="d-block ui-w-40 rounded-3 w-100" alt="">
-                        <!-- //Post Content -->
-                        <?php  echo $postDesc;?>
-                    </p>
-                </div>
 
+                <hr>
+                <p>
+                    <!-- //Post Image -->
+                    <img src="<?php echo $imgPath; ?>" class="d-block ui-w-40 rounded-3 w-100" alt="">
+                    <!-- //Post Content -->
+                    <?php  echo $postDesc;?>
+                </p>
 
-                <a href="javascript:void(0)" class="ui-rect ui-bg-cover"
-                    style="background-image: url('./Pictures/Profiles/bp.jpg');"></a>
             </div>
 
             <div class="card-footer">
                 <a href="javascript:void(0)" class="d-inline-block text-decoration-none">
                     <i class="fas fa-heart"></i>
                     <small class="align-middle p-3">
-                    <?php echo $commentCount;?>
+                        <?php echo $commentCount;?>
                     </small>
                 </a>
                 <a href="javascript:void(0)" class="d-inline-block text-decoration-none ml-3">
                     <i class="fas fa-comment align-middle text-muted "></i>
                     <small class=" p-3 align-middle">
-                    <?php echo $commentCount;?>
+                        <?php echo $commentCount;?>
                     </small>
                 </a>
                 <a href="javascript:void(0)" class="d-inline-block text-decoration-none ml-3">
@@ -89,5 +82,4 @@
                 ?>
             </div>
         </div>
-    </div>
-</div>
+        </div>

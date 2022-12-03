@@ -5,10 +5,7 @@
     <?php include_once('header.php');?>
 </head>
 
-<div class="row d-flex justify-content-center mt-3">
-    <div class="col-md-8 col-lg-6">
-        <div class="card shadow-0 border" style="background-color: #f0f2f5;">
-            <div class="card-body p-4">
+
                 <div class="form-outline mb-4">
                     <div id="error"></div>
                     <label class="form-label" for="addANote">+ Comment</label>
@@ -16,15 +13,10 @@
                     <Button class='btn btn-outline-primary mt-3' id="btnComment" onclick="postComment()">Post Comment</Button>
                 </div>
 
-                <div class="card mb-4 " id="displayCommentArea">
+                <div class="card mb-4 " style="" id="displayCommentArea">
                     
                     
                 </div>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <script>
@@ -36,6 +28,7 @@
         //display data
 
         function displayComments() {
+            setInterval(() => {
             var displayData = "true";
             $.ajax({
                 url: "./comments_process/getComments.php",
@@ -49,6 +42,7 @@
 
                 }
             });
+            }, 1000);  
         }
 
 
@@ -81,5 +75,19 @@
                 }
             });
         }
+
+        function loadDoc() {
+            setInterval(() => {
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("displayCommentArea").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "./comments_process/getComments.php", true);
+            xhttp.send();
+            }, 1000);   
+        }
+        loadDo();
 
     </script>
