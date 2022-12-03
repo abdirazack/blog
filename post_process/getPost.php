@@ -14,7 +14,7 @@
 
 <div class="card m-1 p-0" style="width: 45%;">
 
-    <div class="card-header bg-dark ml-0 p-0 " style="font-family: 'poppins'; color: white;">
+    <div class="card-header  bg-light ml-0 p-0 " style="font-family: 'poppins';">
         <h5 class="m-2 text-uppercase text-center"> <?php echo $rows['title']  ?></h5>
     </div>
 
@@ -29,7 +29,7 @@
     <style>
         .btn:hover{
             color: white;
-            background-color: green;
+            background-color: darkblue;
         }
     </style>
         <Button onclick="viewPost('<?php echo $postID;?>')" class="btn btn-succes h-100 m-0 p-0 w-100 " style="font-family: 'poppins'; font-weight:600;">View Post</Button>

@@ -49,8 +49,8 @@
     <div class="container ">
         <div class="row">
             <div class="row col-sm" id="displayPostArea"></div>
-            <!-- <div class="row col-md-auto" id="displayPostArea"></div>
-            <div class="row row-lg-1" id="displayPostArea"></div> -->
+            <div class="row col-md-auto" id="displayPostArea"></div>
+            <div class="row row-lg-1" id="displayPostArea"></div>
         </div>
     </div>
     <!--=====================================================Posts End======================================================-->
