@@ -1,5 +1,5 @@
 <?php 
-    require_once '../db_connect.php';
+    require_once '../db_connect.php'; 
 
     if(isset($_POST['btnReg']) && isset($_FILES['avatar'])){
 
