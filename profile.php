@@ -17,12 +17,6 @@ include("header.php");
     $userProfilePicture = $rows['avatar'];
     $userOldPass = $rows['password'];
   }
-
-
-        
-
-
-
 ?>
 
 <div class="container mt-5 d-flex justify-content-center">
@@ -117,7 +111,7 @@ include("header.php");
                 <h5 class="modal-title">Change Profile</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="./profproc.php" method="POST">
+            <form action="./profproc.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <label for="newPass" class="col-form-label">Choose Profile Picture:</label>
