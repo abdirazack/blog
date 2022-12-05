@@ -2,22 +2,19 @@
 <?php
 
 if(isset($_POST['avatar'])){
-    $pic = $_POST['avatar'];
 require_once("db_connect.php");
 
 ?>
-<div class="card-img "><img class="rounded-circle" style="width: 200px; height: 200px;"
-                    src="<?php echo $pic;?>" alt="">
-            </div>
 <?php
 $username = $_SESSION['username'];
 $email = $_SESSION['email'];
+$userProfilePicture = "";
 // $profileup = $_FILES['formFile'];
 
 
 
 
-$filename =  $_FILES["avatar"]["name"];
+$filename =  $_FILES["pric"]["name"];
 $filetopath = "./Pictures/Profiles/". $filename;
 $temp_name = $_FILES['formFile']["tmp_name"];
 
