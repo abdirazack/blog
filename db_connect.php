@@ -15,6 +15,6 @@ mysqli_report(MYSQLI_REPORT_ERROR | E_DEPRECATED);
 $conn = mysqli_connect($host,$username,$password,$database);
 
 if($conn == false){
-	die("Connection Failed: ". mysql_connect_error($conn));
+	die("Connection Failed: ". mysqli_connect_error($conn));
 }
 ?>

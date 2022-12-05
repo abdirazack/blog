@@ -17,7 +17,7 @@
 
 ?>
 <head>
-<link rel="icon" type="image/x-icon" href="./Pictures/Favicon.ico">
+<link rel="icon" type="image/x-icon" href="./Pictures/icon.ico">
 <title>COWt</title>
 </head>
 
@@ -43,7 +43,7 @@
           <img src="<?php echo $userProfilePicture; ?>" class="rounded-5 mx-auto d-block" alt="Profile picure" height="50px" width="50px">
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="./profile.php">Profile</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <button type="button" class="btn btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off">
         <div class="handle"></div>

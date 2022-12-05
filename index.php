@@ -2,7 +2,7 @@
 include('header.php');
 ?>
 <head>
-<link rel="icon" type="image/x-icon" href="./Pictures/Favicon.ico">
+<link rel="icon" type="image/x-icon" href="./Pictures/icon.ico">
 <title>COWt</title>
 </head>
 <header>
