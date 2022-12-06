@@ -1,5 +1,4 @@
 <?php
-  session_start();
   require_once('header.php');
   require_once('db_connect.php');
   if(!isset($_SESSION['username'])){
