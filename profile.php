@@ -1,7 +1,4 @@
 <?php
-include("header.php");
-
-  session_start();
   require_once('db_connect.php');
   if(!isset($_SESSION['username'])){
     header("location: login.php");
@@ -17,10 +14,11 @@ include("header.php");
     $userProfilePicture = $rows['avatar'];
     $userOldPass = $rows['password'];
   }
+  include("navabar.php");
 ?>
 
-<div class="container mt-5 d-flex justify-content-center">
-    <div class="card card-md w-50 text-center ">
+<div class="container mt-5 d-flex justify-content-center ">
+    <div class="card card-md w-50 text-center shadow">
         <div class="d-inline  mt-2">
             <div class="card-img "><img class="rounded-circle" style="width: 200px; height: 200px;"
                     src="<?php echo $userProfilePicture;?>" alt="">
@@ -86,6 +84,7 @@ include("header.php");
             </div>
             <div class="modal-body">
                 <form action="./profpass.php" method="POST">
+                    <div id="error" style="color: darkorange;"></div>
                     <div class="form-group">
                         <label>Current Password:</label>
 
@@ -95,6 +94,10 @@ include("header.php");
                     <div class="form-group">
                         <label>New Password:</label>
                         <input class="form-control" type="text" id="newPass" name="newPass">
+                    </div>
+                    <div class="form-group">
+                        <label >Confirm  Password:</label>
+                        <input class="form-control" type="text" id="confirmNewPass" name="confirmNewPass" onkeyup="confirmpass()">
                     </div>
 
             </div>
@@ -137,6 +140,7 @@ include("header.php");
 </div>
 <!--===============================================Edit Profile Picture Modal End============================================-->
 
+<<<<<<< HEAD
 <!--===============================================Change Username Modal Start========================================-->
 
 <div class="modal fade" id="changUserM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -197,3 +201,25 @@ include("header.php");
     </div>
 </div>
 <!--===============================================Change Username Modal End==========================================-->
+=======
+
+<script>
+     $(document).ready(function(){
+        $("#error").addClass("d-none");
+    });
+
+
+    function confirmpass(){
+        var password=$('#newPass').val();
+        var password2=$('#confirmNewPass').val();
+
+        if(!(password === password2)){
+            $("#error").removeClass("d-none");
+            $("#error").text("Your passwords don't match");
+        }
+        else{
+            $("#error").addClass("d-none");
+        }
+    }
+</script>
+>>>>>>> d6ebed4bfc436179df6e43fdf03354fd9c426784
