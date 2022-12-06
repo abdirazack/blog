@@ -3,7 +3,7 @@
 
 if(isset($_FILES['avatar']) &&  isset($_POST['btnUpdateProf'])){
 
-    require_once("db_connect.php");
+    require_once("../db_connect.php");
 
 
     $userid = $_SESSION['userid'];
@@ -29,7 +29,7 @@ if(isset($_FILES['avatar']) &&  isset($_POST['btnUpdateProf'])){
                        if($query_insert)
                        {
                          
-                           header("location: ./profile.php");
+                           header("location: ../profile.php");
                        }
                        else{
                            $data = ['message'=>'Failed to register database', 'status'=>404];

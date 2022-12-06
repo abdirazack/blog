@@ -4,14 +4,17 @@
     header("location: login.php");
   }
 
+  $userid = $_SESSION['userid'];
   $username = $_SESSION['username'];
   $email = $_SESSION['email'];
   $userProfilePicture = "";
   $userOldPass = "";
 
-  $q = mysqli_query($conn, "select avatar,password from users where username = '$username' and email = '$email'");
+  $q = mysqli_query($conn, "select avatar,password,username,email from users where userID='$userid'");
   if($rows=mysqli_fetch_assoc($q)){
-    $userProfilePicture = $rows['avatar'];
+    $usernamee = $rows['username'];
+    $emaill = $rows['email'];;
+    $userProfilePicturee = $rows['avatar'];
     $userOldPass = $rows['password'];
   }
   include("navabar.php");
@@ -21,7 +24,7 @@
     <div class="card card-md w-50 text-center shadow">
         <div class="d-inline  mt-2">
             <div class="card-img "><img class="rounded-circle" style="width: 200px; height: 200px;"
-                    src="<?php echo $userProfilePicture;?>" alt="">
+                    src="<?php echo $userProfilePicturee;?>" alt="">
             </div>
             <!--===Edit Profile button==-->
             <button type="button" class="btn m-0 w-50" data-bs-toggle="modal" data-bs-target="#editprof"
@@ -36,7 +39,7 @@
                 <div class="input-group-append">
                     <input type="text" class="form-control" style="width: 29rem;" placeholder="Username"
                         aria-label="Recipient's username" aria-describedby="basic-addon2"
-                        value="<?php echo $username;?>">
+                        value="<?php echo $usernamee;?>" disabled>
                 </div>
                 <span class="input-group-text mb-3" id="basic-addon2">
                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
@@ -49,12 +52,12 @@
             <!--======================================Change Email Start==========================================================-->
             <div class="input-group">
                 <div class="input-group-append">
-                    <input type="email" class="form-control" style="width: 200px;" placeholder="Email"
-                        aria-label="Recipient's username" aria-describedby="basic-addon2" value="<?php echo $email;?>">
+                    <input type="email" class="form-control" style="width: 200px;" placeholder="Email" disabled
+                        aria-label="Recipient's username" aria-describedby="basic-addon2" value="<?php echo $emaill;?>">
                 </div>
                 <span class="input-group-text" id="basic-addon2">
                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#changUserM" data-whatever="@mdo"><a
+                        data-bs-target="#changEmailM" data-whatever="@mdo"><a
                             class="fas fa-pen align-middle"></a></button>
 
                 </span>
@@ -62,7 +65,7 @@
             <!--======================================Change Email End============================================================-->
             <hr>
             <!--===Change Pass button==-->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changEmailM"
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changPassM"
                 data-whatever="@mdo">Change Password</button>
 
         </div>
@@ -83,7 +86,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="./profpass.php" method="POST">
+                <form action="./Profile_Process/profpass.php" method="POST">
                     <div id="error" style="color: darkorange;"></div>
                     <div class="form-group">
                         <label>Current Password:</label>
@@ -121,7 +124,7 @@
                 <h5 class="modal-title">Change Profile</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="./profproc.php" method="POST" enctype="multipart/form-data">
+            <form action="./Profile_Process/profproc.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <label for="newPass" class="col-form-label">Choose Profile Picture:</label>
@@ -140,7 +143,6 @@
 </div>
 <!--===============================================Edit Profile Picture Modal End============================================-->
 
-<<<<<<< HEAD
 <!--===============================================Change Username Modal Start========================================-->
 
 <div class="modal fade" id="changUserM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -154,7 +156,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="./profpass.php" method="POST">
+                <form action="./Profile_Process/profEmUs.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>New Username:</label>
                         <input class="form-control" type="text" id="txtUserNew" name="txtUserNew">
@@ -171,7 +173,7 @@
     </div>
 </div>
 <!--===============================================Change Username Modal End==========================================-->
-<!--===============================================Change Username Modal Start========================================-->
+<!--===============================================Change Email Modal Start========================================-->
 
 <div class="modal fade" id="changEmailM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -184,7 +186,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="./profpass.php" method="POST">
+                <form action="./Profile_Process/profEmUs.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>New Email:</label>
                         <input class="form-control" type="text" id="txtEmailNew" name="txtEmailNew">
@@ -200,8 +202,7 @@
         </div>
     </div>
 </div>
-<!--===============================================Change Username Modal End==========================================-->
-=======
+<!--===============================================Change Email Modal End==========================================-->
 
 <script>
      $(document).ready(function(){
@@ -222,4 +223,3 @@
         }
     }
 </script>
->>>>>>> d6ebed4bfc436179df6e43fdf03354fd9c426784
