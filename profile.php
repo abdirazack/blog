@@ -69,7 +69,7 @@ include("header.php");
 
 
 <!--===============================================Change Password Modal Start========================================-->
-<!-- 
+
 <div class="modal fade" id="changPassM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -81,25 +81,27 @@ include("header.php");
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form action="./profpass.php" method="POST">
                     <div class="form-group">
-                        <label for="currPass" class="col-form-label">Current Password:</label>
-                        <input type="text" class="form-control " disabled id="currPass"
-                            value="<?php echo $userOldPass;?>">
+                        <label >Current Password:</label>
+                        
+                        <input class="form-control" type="text" disabled id="currPass"
+                            value="<?php echo $userOldPass;?>" name="currPass">
                     </div>
                     <div class="form-group">
-                        <label for="newPass" class="col-form-label">New Password:</label>
-                        <input type="text" class="form-control" id="newPass">
+                        <label >New Password:</label>
+                        <input class="form-control" type="text" id="newPass" name="newPass">
                     </div>
-                </form>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save Changes</button>
+                <button type="submit" name="changePassnew" id="changePassnew" class="btn btn-primary">Save Changes</button>
             </div>
+            </form>
         </div>
     </div>
-</div> -->
+</div>
 <!--===============================================Change Password Modal End==========================================-->
 
 <!--===============================================Edit Profile Picture Modal Start==========================================-->
@@ -115,7 +117,7 @@ include("header.php");
                 <div class="modal-body">
 
                     <label for="newPass" class="col-form-label">Choose Profile Picture:</label>
-                    <input type="file" name="avatar" class="form-control form-control-lg" id="avatar"   />
+                    <input type="file" name="avatar" class="form-control form-control-lg" id="avatar" />
                     <!-- <input type="file" id="avatar" name="avatar" class="form-control shadow-none"/> -->
 
                 </div>
