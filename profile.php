@@ -41,7 +41,9 @@ include("header.php");
                         value="<?php echo $username;?>">
                 </div>
                 <span class="input-group-text mb-3" id="basic-addon2">
-                    <button class="btn btn-sm"><a class="fas fa-pen align-middle"></a></button>
+                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#changUserM" data-whatever="@mdo"><a
+                            class="fas fa-pen align-middle"></a></button>
                 </span>
             </div>
             <!--======================================Change Username End=========================================================-->
@@ -53,14 +55,16 @@ include("header.php");
                         aria-label="Recipient's username" aria-describedby="basic-addon2" value="<?php echo $email;?>">
                 </div>
                 <span class="input-group-text" id="basic-addon2">
-                    <button class="btn btn-sm"><a class="fas fa-pen align-middle"></a></button>
+                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#changUserM" data-whatever="@mdo"><a
+                            class="fas fa-pen align-middle"></a></button>
 
                 </span>
             </div>
             <!--======================================Change Email End============================================================-->
             <hr>
             <!--===Change Pass button==-->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changPassM"
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changEmailM"
                 data-whatever="@mdo">Change Password</button>
 
         </div>
@@ -83,20 +87,21 @@ include("header.php");
             <div class="modal-body">
                 <form action="./profpass.php" method="POST">
                     <div class="form-group">
-                        <label >Current Password:</label>
-                        
+                        <label>Current Password:</label>
+
                         <input class="form-control" type="text" disabled id="currPass"
                             value="<?php echo $userOldPass;?>" name="currPass">
                     </div>
                     <div class="form-group">
-                        <label >New Password:</label>
+                        <label>New Password:</label>
                         <input class="form-control" type="text" id="newPass" name="newPass">
                     </div>
 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" name="changePassnew" id="changePassnew" class="btn btn-primary">Save Changes</button>
+                <button type="submit" name="changePassnew" id="changePassnew" class="btn btn-primary">Save
+                    Changes</button>
             </div>
             </form>
         </div>
@@ -131,3 +136,64 @@ include("header.php");
     </div>
 </div>
 <!--===============================================Edit Profile Picture Modal End============================================-->
+
+<!--===============================================Change Username Modal Start========================================-->
+
+<div class="modal fade" id="changUserM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Username</h5>
+                <button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="./profpass.php" method="POST">
+                    <div class="form-group">
+                        <label>New Username:</label>
+                        <input class="form-control" type="text" id="txtUserNew" name="txtUserNew">
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" name="UsernewN" id="UsernewN" class="btn btn-primary">Save
+                    Changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--===============================================Change Username Modal End==========================================-->
+<!--===============================================Change Username Modal Start========================================-->
+
+<div class="modal fade" id="changEmailM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Email</h5>
+                <button type="button" class="btn close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="./profpass.php" method="POST">
+                    <div class="form-group">
+                        <label>New Email:</label>
+                        <input class="form-control" type="text" id="txtEmailNew" name="txtEmailNew">
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" name="EmailnewN" id="EmailnewN" class="btn btn-primary">Save
+                    Changes</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--===============================================Change Username Modal End==========================================-->
