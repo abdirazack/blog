@@ -11,8 +11,8 @@
 
 
 
-
-<div class="card m-1 p-0" style="width: 45%;">
+<div class="col">
+<div class="card m-1 p-0" style="width: 100%;">
 
     <div class="card-header  bg-light ml-0 p-0 " style="font-family: 'poppins';">
         <h5 class="m-2 text-uppercase text-center"> <?php echo $rows['title']  ?></h5>
@@ -36,7 +36,7 @@
     </div>
 
 </div>
-
+</div>
 <?php
         } 
     }

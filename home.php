@@ -47,11 +47,8 @@
 
     <h2 class='mx-5'>Most Viewed Posts of All Time</h2>
     <div class="container ">
-        <div class="row">
-            <div class="row col-sm" id="displayPostArea"></div>
-            <div class="row col-md-auto" id="displayPostArea"></div>
-            <div class="row row-lg-1" id="displayPostArea"></div>
-        </div>
+
+            <div class="row row-cols-3 row-cols-md-3 g-4" id="displayPostArea"></div>
     </div>
     <!--=====================================================Posts End======================================================-->
     <script>
