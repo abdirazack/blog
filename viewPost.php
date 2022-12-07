@@ -61,7 +61,7 @@
             <a href="javascript:void(0)" id="favs" class="d-inline-block text-decoration-none">
                 <i class="far fa-heart" id="favicon"></i>
                 <small class="align-middle p-3" id="favitext">
-                    
+                    <!-- favorite count -->
                 </small>
             </a>
             <a href="javascript:void(0)" class="d-inline-block text-decoration-none ml-3">
@@ -96,7 +96,7 @@
                 processData: false,
                 method: "POST",
                 success: function (data) {
-                    alert(data);
+ 
                    var obj = jQuery.parseJSON(data);
                    if (obj.status == 200) {
                         displayfavs();
@@ -111,6 +111,7 @@
 
     $(document).ready(function() {
         displayfavs();
+        check();
     });
     //display data
 
@@ -124,17 +125,13 @@
 
             },
             success: function(data) {
-                alert(data);
+ 
                 var obj = jQuery.parseJSON(data);
                 if(obj.status == 200){
                     $('#favitext').text(obj.message);
-                    $('#favicon').removeClass("far");
-                    $('#favicon').addClass("fas");
                 }
                 else if(obj.status === 303){
                     $('#favitext').text(obj.message);
-                    $('#favicon').removeClass("far");
-                    $('#favicon').addClass("fas");
                 }
                 else
                 {
@@ -142,5 +139,31 @@
                 }
             }
         });
+        check();
     }
+
+    function check() {
+        var displayData = "true";
+        $.ajax({
+            url: "./favorite_process/check.php",
+            type: 'post',
+            data: {
+                displaysend: displayData
+
+            },
+            success: function(data) {
+                var obj = jQuery.parseJSON(data);
+                if(obj.status == 200){
+                    $('#favicon').removeClass("far");
+                    $('#favicon').addClass("fas");
+                }
+                 if(obj.status === 404){
+                    $('#favicon').removeClass("fas");
+                    $('#favicon').addClass("far");
+                }
+                
+            }
+        });
+    }
+    
 </script>
