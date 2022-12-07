@@ -1,4 +1,9 @@
 <?php 
+echo $filename =  $_FILES["avatar"]["name"];
+echo $filetype =  $_FILES["avatar"]["type"];
+
+die();
+/*
     require_once '../db_connect.php'; 
 
     if(isset($_POST['btnReg']) && isset($_FILES['avatar'])){
@@ -100,4 +105,8 @@
         echo json_encode($data);
         return ;
     }
+?>*/
+
 ?>
+
+

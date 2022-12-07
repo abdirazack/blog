@@ -3,13 +3,13 @@
     <!-- Button trigger modal -->
 
     <button type="button" class="btn btn-primary float-end mx-4" style="width: 50px; height: 50px;border-radius:30px;"
-        data-bs-toggle="modal" data-bs-target="#exampleModal">
+        data-bs-toggle="modal" data-bs-target="#createPost">
         <div class="fas fa-plus w-100"></div>
     </button>
     <add key="webpages:Enabled" value="true" />
 
     <!-- Modal for creating new post-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="createPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -17,7 +17,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="postForm" action="./post_process/insert.php" method="POST" enctype="multipart/form-data">
+                    <form id="postForm"  method="POST" enctype="multipart/form-data">
                         <div id="error" style="color: red; font-size: 24px;"></div>
                         <div class="form-group">
                             <label class="form-label">Post Title</label>
@@ -38,7 +38,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <input type="submit" name='btnReg' id="btnReg" class="btn btn-outline-primary btn-lg"
-                        value="Create Post" />
+                        value="Create Post"/>
                 </div>
                 </form>
             </div>
@@ -57,37 +57,36 @@
     <script>
     $(document).ready(function() {
         $("#error").addClass("d-none");
+
+        $("#postForm").submit(function(e) {
+            e.preventDefault();
+            
+            $.ajax({
+                type: "POST",
+                url: "post_process/insert.php",
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: "POST",
+                data: new FormData($(this)[0]),
+                success: function(data) {
+                    obj = jQuery.parseJSON(data);
+                    alert(data);
+                    if (obj.status === 200) {
+                        $('#createPost').modal("hide");
+                        $('.modal-backdrop').remove();
+                        displayPosts();
+                    }
+                    if (obj.status === 404) {
+                        $("#error").removeClass("d-none");
+                        $("#error").text(obj.message);
+                    }
+                    }
+                });
+            });
     });
 
-    function adduser() {
-        var postTitle = $('#postTitle').val();
-        var postContent = $('#postContent').val();
-        var postPic = $('#postPic').val();
-        var btnReg = $('#btnReg').val();
-
-        $.ajax({
-            url: "post_process/insert.php",
-            type: 'post',
-            data: {
-                postTitle: postTitle,
-                postContent: postContent,
-                postPic: postPic,
-                btnReg: btnReg,
-            },
-            success: function(data) {
-                alert(data);
-                var obj = jQuery.parseJSON(data);
-                if (obj.status == 200) {
-                    Window.location.assign('home.php');
-                }
-                if (obj.status == 404) {
-                    $("#error").removeClass("d-none");
-                    $("#error").text(obj.message);
-                }
-
-            }
-        });
-    }
+   
 
     $(document).ready(function() {
         displayPosts();
