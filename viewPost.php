@@ -58,10 +58,10 @@
         </div>
 
         <div class="card-footer">
-            <a href="javascript:void(0)" class="d-inline-block text-decoration-none">
-                <i class="fas fa-heart"></i>
-                <small class="align-middle p-3">
-                    <?php echo $commentCount;?>
+            <a href="javascript:void(0)" id="favs" class="d-inline-block text-decoration-none">
+                <i class="far fa-heart" id="favicon"></i>
+                <small class="align-middle p-3" id="favitext">
+                    
                 </small>
             </a>
             <a href="javascript:void(0)" class="d-inline-block text-decoration-none ml-3">
@@ -83,3 +83,64 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#favs").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "favorite_process/insert.php",
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: "POST",
+                success: function (data) {
+                    alert(data);
+                   var obj = jQuery.parseJSON(data);
+                   if (obj.status == 200) {
+                        displayfavs();
+                   }
+                   else {
+                    alert(obj.message);
+                   }
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        displayfavs();
+    });
+    //display data
+
+    function displayfavs() {
+        var displayData = "true";
+        $.ajax({
+            url: "./favorite_process/getfavs.php",
+            type: 'post',
+            data: {
+                displaysend: displayData
+
+            },
+            success: function(data) {
+                alert(data);
+                var obj = jQuery.parseJSON(data);
+                if(obj.status == 200){
+                    $('#favitext').text(obj.message);
+                    $('#favicon').removeClass("far");
+                    $('#favicon').addClass("fas");
+                }
+                else if(obj.status === 303){
+                    $('#favitext').text(obj.message);
+                    $('#favicon').removeClass("far");
+                    $('#favicon').addClass("fas");
+                }
+                else
+                {
+                    alert(obj.messsage);
+                }
+            }
+        });
+    }
+</script>

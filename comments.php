@@ -88,6 +88,6 @@
             xhttp.send();
             }, 1000);   
         }
-        loadDo();
+        //loadDo();
 
     </script>
