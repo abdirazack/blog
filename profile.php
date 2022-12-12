@@ -1,3 +1,8 @@
+<style>
+    *::-webkit-scrollbar {
+    display: none; 
+    }
+</style>
 <?php
   require_once('db_connect.php');
   if(!isset($_SESSION['username'])){
@@ -9,6 +14,7 @@
   $email = $_SESSION['email'];
   $userProfilePicture = "";
   $userOldPass = "";
+  $postID = "";
 
   $q = mysqli_query($conn, "select avatar,password,username,email from users where userID='$userid'");
   if($rows=mysqli_fetch_assoc($q)){
@@ -28,7 +34,7 @@
             </div>
             <!--===Edit Profile button==-->
             <button type="button" class="btn m-0 w-50" data-bs-toggle="modal" data-bs-target="#editprof"
-                data-whatever="@mdo">Change Profile Picture</button>
+                data-whatever="@mdo"><i class="fas fa-edit"></i></button>
 
         </div>
 
@@ -202,6 +208,16 @@
         </div>
     </div>
 </div>
+
+<!--============my posts===========-->
+<hr>
+<h2 style="text-align: center;" class='mx-5 padding: 5'>My Posts </h2>
+    <div class="container ">
+
+            <div class="row row-cols-3 row-cols-md-2 g-4" id="displayPostArea"></div>
+    </div>
+
+
 <!--===============================================Change Email Modal End==========================================-->
 
 <script>
@@ -223,3 +239,35 @@
         }
     }
 </script>
+
+
+<!--===============Display My posts==================--->
+
+<script>
+
+$(document).ready(function() {
+        displayPosts();
+    });
+    //display data
+
+    function displayPosts() {
+        var displayData = "true";
+        $.ajax({
+            url: "./post_process/getMyPost.php",
+            type: 'post',
+            data: {
+                displaysend: displayData
+
+            },
+            success: function(data, status) {
+                $('#displayPostArea').html(data);
+
+            }
+        });
+    }
+
+    </script>
+
+<?php 
+include("getMypost.php");
+?>
