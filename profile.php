@@ -1,3 +1,8 @@
+<style>
+    *::-webkit-scrollbar {
+    display: none; 
+    }
+</style>
 <?php
   require_once('db_connect.php');
   if(!isset($_SESSION['username'])){
@@ -29,7 +34,7 @@
             </div>
             <!--===Edit Profile button==-->
             <button type="button" class="btn m-0 w-50" data-bs-toggle="modal" data-bs-target="#editprof"
-                data-whatever="@mdo">Change Profile Picture</button>
+                data-whatever="@mdo"><i class="fas fa-edit"></i></button>
 
         </div>
 
@@ -205,7 +210,8 @@
 </div>
 
 <!--============my posts===========-->
-<h2 style="text-align: center;" class='mx-5'>My Posts </h2>
+<hr>
+<h2 style="text-align: center;" class='mx-5 padding: 5'>My Posts </h2>
     <div class="container ">
 
             <div class="row row-cols-3 row-cols-md-2 g-4" id="displayPostArea"></div>
@@ -261,6 +267,7 @@ $(document).ready(function() {
     }
 
     </script>
+
 <?php 
 include("getMypost.php");
 ?>

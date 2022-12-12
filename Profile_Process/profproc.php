@@ -13,6 +13,8 @@ if(isset($_FILES['avatar']) &&  isset($_POST['btnUpdateProf'])){
     $filetopath = "./Pictures/Profiles/". $filename; 
     $temp_name = $_FILES['avatar']["tmp_name"];
 
+    $path = "../Pictures/Profiles/". $filename; 
+
 
     if (file_exists($filetopath)){
                        $data = ['message'=>'A file with the same name already exists.', 'status'=>404];
@@ -21,7 +23,7 @@ if(isset($_FILES['avatar']) &&  isset($_POST['btnUpdateProf'])){
                }
         else
        {
-           if(move_uploaded_file($temp_name , $filetopath))
+           if(move_uploaded_file($temp_name , $path))
                {
                        
                        $sqq = "Update users set avatar = '$filetopath' where userID = $userid";
