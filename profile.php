@@ -9,6 +9,7 @@
   $email = $_SESSION['email'];
   $userProfilePicture = "";
   $userOldPass = "";
+  $postID = "";
 
   $q = mysqli_query($conn, "select avatar,password,username,email from users where userID='$userid'");
   if($rows=mysqli_fetch_assoc($q)){
@@ -202,6 +203,15 @@
         </div>
     </div>
 </div>
+
+<!--============my posts===========-->
+<h2 style="text-align: center;" class='mx-5'>My Posts </h2>
+    <div class="container ">
+
+            <div class="row row-cols-3 row-cols-md-2 g-4" id="displayPostArea"></div>
+    </div>
+
+
 <!--===============================================Change Email Modal End==========================================-->
 
 <script>
@@ -223,3 +233,34 @@
         }
     }
 </script>
+
+
+<!--===============Display My posts==================--->
+
+<script>
+
+$(document).ready(function() {
+        displayPosts();
+    });
+    //display data
+
+    function displayPosts() {
+        var displayData = "true";
+        $.ajax({
+            url: "./post_process/getMyPost.php",
+            type: 'post',
+            data: {
+                displaysend: displayData
+
+            },
+            success: function(data, status) {
+                $('#displayPostArea').html(data);
+
+            }
+        });
+    }
+
+    </script>
+<?php 
+include("getMypost.php");
+?>
