@@ -8,6 +8,10 @@
     </button>
     <add key="webpages:Enabled" value="true" />
 
+    <!-- switch -->
+    
+
+
     <!-- Modal for creating new post-->
     <div class="modal fade" id="createPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-lg">
@@ -87,6 +91,23 @@
 
     $(document).ready(function() {
         displayPosts();
+
+
+        $("#darkmode").click(function() {
+            
+                $("#createPost").removeClass("bg-light");
+                $("#createPost").addClass("bg-dark");
+                $("#createPost").addClass("text-black");
+
+                $("body").removeClass("bg-light");
+                $("body").addClass("bg-dark");
+                $("body").addClass("text-white");
+
+                $("#nav").removeClass("bg-light");
+                $("#nav").addClass("bg-dark");
+                $("#nav").addClass("text-black");
+
+    });
     });
     //display data
 

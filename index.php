@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+include('db_connect.php');
 ?>
 <head>
 <link rel="icon" type="image/x-icon" href="./Pictures/icon.ico">
@@ -25,39 +26,36 @@ include('header.php');
 </header>
 
 <body>
-    <div id="container">
-        <h2 class='mx-5'>Most Viewed Posts of All Time</h2>
-        <div class="d-flex justify-content-evenly">
-            <div class="card" style="width: 20rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magni dicta,
-                        nesciunt mollitia, vero, nam eveniet neque molestiae unde in delectus dolorum explicabo a
-                        possimus consequuntur temporibus corporis et qui. </p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
+<h2 class='mx-5'>Most Viewed Posts of All Time</h2>
+    <div class="container ">
+
+            <div class="row row-cols-3 row-cols-md-3 g-4" id="displayPostArea">
+
             </div>
-            <div class="card" style="width: 20rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card" style="width: 20rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 </body>
+
+<script>
+
+    $(document).ready(function(){
+        displayPosts();
+
+    });
+
+
+    function displayPosts() {
+        var displayData = "true";
+        $.ajax({
+            url: "./index_process.php",
+            type: 'post',
+            data: {
+                displaysend: displayData
+
+            },
+            success: function(data, status) {
+                $('#displayPostArea').html(data);
+
+            }
+        });
+    }
+</script>
