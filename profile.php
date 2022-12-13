@@ -211,7 +211,7 @@
 
 <!--============my posts===========-->
 <hr>
-<h2 style="text-align: center;" class='mx-5 padding: 5'>My Posts </h2>
+<h2 style="text-align: center; padding: 5" class='mx-5 padding: 5'>My Posts </h2>
     <div class="container ">
 
             <div class="row row-cols-3 row-cols-md-2 g-4" id="displayPostArea"></div>
