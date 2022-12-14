@@ -31,7 +31,7 @@
         } 
     }
     else{
-        $data = ['message'=>'No Data found in posts', 'status'=>404];
+        $data = 'Looks Like You Have not posted yet!!';
         echo json_encode($data);
       return ;
    }
