@@ -1,66 +1,107 @@
-<?php
-  include("header.php");
+<?php 
+include_once("header.php")
+
 ?>
 <style>
-    .gradient-custom {
-/* fallback for old browsers */
-background: #6a11cb;
 
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+body{
+    margin-top:20px;
+    background: #f6f9fc;
 }
-    </style>
-<section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
+.account-block {
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+}
+.account-block .overlay {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.account-block .account-testimonial {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 1.75rem;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+}
 
-            <div class="mb-md-5 mt-md-4 pb-5">
+.text-theme {
+    color: #5369f8 !important;
+}
 
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-              <p class="text-white-50 mb-5">Please enter your login and password!</p>
-            <form action="login_process.php" method="post">
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typeEmailX">Username</label>
-                <input type="text" id="username" name="username" class="form-control form-control-lg" />
-              </div>
+.btn-theme {
+    background-color: #5369f8;
+    border-color: #5369f8;
+    color: #fff;
+}
+</style>
 
-              <div class="form-outline form-white mb-4">
-                <label class="form-label" for="typePasswordX">Password</label>
-                <input type="password" id="password" name= "password" class="form-control form-control-lg" />
-              </div>
+<div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Login</h3>
+                                </div>
 
-              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="./Forget_Pass.php">Forgot password?</a></p>
+                                <h6 class="h5 mb-0">Welcome back!</h6>
+                                <p class="text-muted mt-2 mb-5">Enter your UserName and password to access.</p>
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit" name="btnLogin" id = "btnLogin">Login</button>
+                                <form action="login_process.php" method="post">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">User Name</label>
+                                        <input type="text" id="username" name="username"  class="form-control form-control-lg">
+                                    </div>
+                                    <div class="form-group mb-5">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" id="password" name= "password" class="form-control form-control-lg">
+                                    </div>
+                                    <button  class="btn btn-outline-primary btn-lg" type="submit" name="btnLogin" id = "btnLogin">Login</button>
+                                   
+                                </form> <a href="./Forget_Pass.php" class="forgot-link float-right text-primary">Forgot password?</a>
+                            </div>
+                        </div>
 
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-              </div>
-            </form>
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right">
+                            <img src="./Pictures/Profiles/sm.png">
+                                <div class="overlay rounded-right"></div>
+                                <div class="account-testimonial">
+                                    <h4 class="text-white mb-4">Welcome to COWT.</h4>
+                                    <p class="lead text-white">The most amazing blog on the world wide web Come express yourself.</p>
+                                    <p>-StickMan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
             </div>
+            <!-- end card -->
 
-            <div>
-              <p class="mb-0">Don't have an account? <a href="./userReg.php" class="text-white-50 fw-bold">Sign Up</a>
-              </p>
-            </div>
+            <p class="text-muted text-center mt-3 mb-0">Don't have an account? <a href="./userReg.php" class="text-primary ml-1">register</a></p>
 
-          </div>
+            <!-- end row -->
+
         </div>
-      </div>
+        <!-- end col -->
     </div>
-  </div>
-</section>
-
-
-
-<script>
-  
-</script>
+    <!-- Row -->
+</div>
