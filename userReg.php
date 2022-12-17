@@ -73,7 +73,7 @@
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <input type="submit" name= 'btnReg' id="btnReg"  class="btn btn-outline-primary btn-lg" value="Register" />
                   </div>
-                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="./login.php"
                     class="fw-bold text-body"><u>Login here</u></a></p>
 
                 </form>
