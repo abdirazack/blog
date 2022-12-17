@@ -80,14 +80,14 @@ body{
 
                         <div class="col-lg-6 d-none d-lg-inline-block">
                             <div class="account-block rounded-right">
-                            <img src="./Pictures/Profiles/sm.png">
+                            <img src="./Pictures/Profiles/itachi.png" height="560vh" width = "450vw">
                                 <div class="overlay rounded-right"></div>
                                 <div class="account-testimonial">
                                     <h4 class="text-white mb-4">Welcome to COWT.</h4>
                                     <p class="lead text-white">The most amazing blog on the world wide web Come express yourself.</p>
                                     <p>-StickMan</p>
                                 </div>
-                            </div>
+                            </div>    
                         </div>
                     </div>
 
